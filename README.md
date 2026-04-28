@@ -1,7 +1,6 @@
 # Metodos_Numericos
 ## para la materia de metodos numéricos  ITESA
-### Evidencia de actividades 
-#### para revisar 
-##### inicio 
-###### texto de entrada 
-####### anexar contenido en GitHub
+### Evidencia de actividades  
+#### inicio 
+##### texto de entrada 
+###### anexar contenido en GitHub
