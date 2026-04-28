@@ -2,3 +2,4 @@
 ## para la materia de metodos numéricos  ITESA
 ### Evidencia de actividades 
 #### para revisar 
+##### inicio 
