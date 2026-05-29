@@ -1,143 +1,330 @@
-# 🧮 Métodos Numéricos - Resumen de Temas
+# Métodos Numéricos - Resumen de Temas
 
 > **Asignatura:** Métodos Numéricos  
 > **Institución:** Tecnológico Nacional de México (TecNM)  
-> **Objetivo:** Desarrollo y aplicación de algoritmos para resolver problemas matemáticos complejos mediante aproximaciones numéricas utilizando herramientas computacionales.
+> **Objetivo:** Desarrollar y aplicar algoritmos numéricos para resolver problemas matemáticos complejos mediante aproximaciones computacionales.
 
 ---
 
-## 📌 Índice de Contenidos
-1. [Introducción a los Métodos Numéricos](#1-introducción-a-los-métodos-numéricos)
-2. [Solución de Ecuaciones Algebraicas](#2-solución-de-ecuaciones-algebraicas)
-3. [Solución de Sistemas de Ecuaciones](#3-solución-de-sistemas-de-ecuaciones)
-4. [Ajuste de Funciones e Interpolación](#4-ajuste-de-funciones-e-interpolación)
-5. [Diferenciación e Integración Numérica](#5-diferenciación-e-integración-numérica)
-6. [Solución de Ecuaciones Diferenciales](#6-solución-de-ecuaciones-diferenciales)
+# Índice de Contenidos
+
+1. Introducción a los Métodos Numéricos
+2. Solución de Ecuaciones Algebraicas
+3. Solución de Sistemas de Ecuaciones
+4. Ajuste de Funciones e Interpolación
+5. Diferenciación e Integración Numérica
+6. Solución de Ecuaciones Diferenciales
 
 ---
 
-## 1. Introducción a los Métodos Numéricos
+# 1. Introducción a los Métodos Numéricos
 
-Los **métodos numéricos** son técnicas matemáticas utilizadas para obtener soluciones aproximadas a problemas que no pueden resolverse de forma exacta (analítica) o cuya resolución resulta excesivamente compleja.
+Los métodos numéricos son técnicas matemáticas utilizadas para obtener soluciones aproximadas de problemas que no pueden resolverse de forma exacta o cuya solución analítica resulta demasiado compleja.
 
-### 🎯 Importancia en la Ingeniería
-* Permiten modelar y resolver problemas complejos de ingeniería y ciencias exactas.
-* Facilitan la implementación de soluciones algoritmos mediante programación.
-* Optimizan recursos obteniendo resultados precisos en tiempos de cómputo razonables.
+### Importancia en la Ingeniería
 
-### ⚠️ Análisis y Tipos de Errores
+- Permiten modelar fenómenos físicos y procesos reales.
+- Facilitan la resolución de problemas complejos mediante algoritmos computacionales.
+- Proporcionan resultados precisos con un costo computacional razonable.
+- Constituyen una herramienta fundamental en áreas como ingeniería, física, economía y ciencias computacionales.
 
-En el cálculo numérico, es fundamental medir la aproximación mediante los siguientes indicadores:
+### Análisis de Errores
 
-* **Error Absoluto ($E_a$):** Mide la diferencia absoluta entre el valor real y el valor aproximado.
-    $$E_a = |Valor_{\text{real}} - Valor_{\text{aproximado}}|$$
+Los resultados numéricos siempre presentan cierto grado de error debido a las aproximaciones realizadas.
 
-* **Error Relativo ($E_r$):** Indica la proporción del error respecto al valor real (suele expresarse en porcentaje).
-    $$E_r = \frac{|Valor_{\text{real}} - Valor_{\text{aproximado}}|}{Valor_{\text{real}}}$$
+#### Error Absoluto
 
-* **Error de Redondeo:** Se produce debido a la incapacidad de las computadoras para almacenar una cantidad infinita de cifras decimales (limitación de bits).
-* **Error de Truncamiento:** Ocurre cuando se sustituye un proceso matemático infinito (como una serie de potencias) por una aproximación finita.
+Mide la diferencia entre el valor real y el valor aproximado.
 
----
+\[
+E_a = |Valor_{real} - Valor_{aproximado}|
+\]
 
-## 2. Solución de Ecuaciones Algebraicas
+#### Error Relativo
 
-El objetivo principal de esta sección es encontrar las **raíces de una ecuación**, es decir, determinar los valores de $x$ que satisfacen la condición:
+Representa la magnitud del error respecto al valor real.
 
-$$f(x) = 0$$
+\[
+E_r = \frac{|Valor_{real} - Valor_{aproximado}|}{Valor_{real}}
+\]
 
-> **Ejemplo elemental:** > Dada la ecuación $x^2 - 9 = 0$, sus raíces reales corresponden a $x = 3$ y $x = -3$.
+#### Error de Redondeo
 
-### 🔄 Clasificación de Métodos
+Se produce al representar números con una cantidad limitada de cifras decimales dentro de la computadora.
 
-* **Métodos de Intervalo (Cerrados):** Requieren de un rango inicial donde se garantice un cambio de signo (Teorema de Bolzano).
-    * *Método de Bisección:* Divide repetidamente el intervalo a la mitad. Es lento pero **siempre converge** si se cumplen las condiciones iniciales.
-    * *Falsa Posición:* Une los extremos del intervalo con una línea recta para aproximar la raíz de forma más eficiente.
-* **Métodos Abiertos:** No requieren encerrar la raíz, se basan en iteraciones a partir de valores iniciales.
-    * *Punto Fijo:* Transforma la ecuación original en $x = g(x)$ y evalúa sucesivamente:
-        $$x_{n+1} = g(x_n)$$
-    * *Newton-Raphson & Secante:* Utilizan la derivada (o una aproximación geométrica de esta) para acelerar la convergencia.
+#### Error de Truncamiento
+
+Ocurre cuando un proceso matemático infinito se reemplaza por una aproximación finita.
 
 ---
 
-## 3. Solución de Sistemas de Ecuaciones
+# 2. Solución de Ecuaciones Algebraicas
 
-Un sistema de ecuaciones lineales (SEL) busca encontrar los valores de múltiples incógnitas que satisfacen diferentes restricciones de manera simultánea.
+El objetivo es encontrar las raíces de una ecuación, es decir, los valores de \(x\) que satisfacen:
 
-### 📊 Representación Matricial
-Cualquier sistema lineal de $n \times n$ puede expresarse elegantemente en su forma compacta:
+\[
+f(x)=0
+\]
 
-$$A X = B$$
+### Métodos de Intervalo o Cerrados
 
-Donde:
-* $A$ es la **matriz de coeficientes** de dimensión $n \times n$.
-* $X$ es el **vector de incógnitas** a resolver.
-* $B$ es el **vector de términos independientes**.
+Estos métodos requieren un intervalo inicial donde exista un cambio de signo.
 
-### 🛠️ Métodos de Solución
+#### Método de Bisección
 
-| Tipo de Método | Métodos Principales | Características |
-| :--- | :--- | :--- |
-| **Directos** *(Exactos)* | • Eliminación Gaussiana<br>• Gauss-Jordan<br>• Factorización LU | Encuentran la solución exacta tras un número finito de pasos algebraicos. Sensibles al error de redondeo en matrices grandes. |
-| **Iterativos** *(Aproximados)* | • Método de Jacobi<br>• Método de Gauss-Seidel | Parten de una aproximación inicial y refinan el resultado. Ideales para matrices dispersas y sistemas de gran escala. |
+- Divide repetidamente el intervalo en dos partes iguales.
+- Selecciona el subintervalo donde permanece el cambio de signo.
+- Garantiza convergencia bajo las condiciones adecuadas.
 
----
+#### Método de Falsa Posición
 
-## 4. Ajuste de Funciones e Interpolación
+- Utiliza interpolación lineal entre los extremos del intervalo.
+- Generalmente converge más rápido que la bisección.
+- Conserva la ventaja de trabajar con un intervalo acotado.
 
-Consiste en construir una función matemática continua que represente de la mejor manera posible un conjunto de datos discretos o experimentales.
+### Métodos Abiertos
 
-### 📈 Interpolación vs. Regresión
+No requieren encerrar la raíz dentro de un intervalo.
 
-* **Interpolación:** Se utiliza cuando los datos son altamente confiables y se desea estimar valores *intermedios* forzando a que la nueva función pase exactamente por todos los puntos conocidos (ej. Polinomios de Lagrange, Splines).
-* **Regresión por Mínimos Cuadrados:** Se emplea cuando los datos tienen dispersión o ruido experimental. No busca pasar por los puntos, sino encontrar una tendencia matemática ($y = mx + b$) minimizando la suma de los errores al cuadrado.
+#### Método de Punto Fijo
 
----
+Transforma la ecuación original en:
 
-## 5. Diferenciación e Integración Numérica
+\[
+x=g(x)
+\]
 
-### 📐 Diferenciación Numérica
-Permite aproximar el valor de la derivada de una función utilizando únicamente muestras de puntos, ideal cuando no se cuenta con la expresión analítica.
+y realiza iteraciones mediante:
 
-* *Diferencia hacia adelante (2 puntos):*
-    $$f'(x) \approx \frac{f(x+h) - f(x)}{h}$$
+\[
+x_{n+1}=g(x_n)
+\]
 
-### 🍏 Integración Numérica (Cuadratura)
-Calcula el área bajo la curva mediante la discretización del dominio en subintervalos de ancho $h$.
+#### Método de Newton-Raphson
 
-* **Regla del Trapecio:** Aproxima el área mediante una serie de trapecios adyacentes.
-    $$\int_a^b f(x) \,dx \approx \frac{b-a}{2} [f(a) + f(b)]$$
-* **Regla de Simpson:** Utiliza polinomios de segundo o tercer grado (parábolas) logrando precisiones mucho más altas con menor esfuerzo de cómputo.
+Utiliza la derivada de la función para aproximar la raíz.
 
----
+Características:
 
-## 6. Solución de Ecuaciones Diferenciales
+- Convergencia rápida.
+- Alta precisión.
+- Requiere calcular la derivada.
 
-Las ecuaciones diferenciales ordinarias (EDO) modelan sistemas dinámicos donde las variables cambian respecto a otras (razones de cambio).
+#### Método de la Secante
 
-### ⏳ Problemas de Valor Inicial (PVI)
-Consisten en resolver una ecuación diferencial sujeta a una condición conocida en el origen del dominio:
-
-$$\frac{dy}{dx} = f(x, y), \quad \text{con } y(x_0) = y_0$$
-
-### 💻 Algoritmos de Resolución
-
-* **Método de Euler:** El algoritmo más simple y de primer orden. Avanza en la dirección de la pendiente local:
-    $$y_{n+1} = y_n + h \cdot f(x_n, y_n)$$
-* **Métodos de Runge-Kutta (RK):** Logran una precisión superior introduciendo derivadas implícitas mediante evaluaciones intermedias de la función en cada paso $h$ (el más popular es RK4).
+- Similar a Newton-Raphson.
+- No necesita derivadas explícitas.
+- Utiliza dos aproximaciones iniciales.
 
 ---
 
-## 🏁 Tabla de Resumen General
+# 3. Solución de Sistemas de Ecuaciones
 
-| Tema | Concepto Clave | Herramienta Principal |
-| :--- | :--- | :--- |
-| **Tema 1** | Análisis de Errores | Precisión, Redondeo y Truncamiento |
-| **Tema 2** | Raíces de Ecuaciones | Bisección, Newton-Raphson |
-| **Tema 3** | Sistemas Lineales | Gauss-Jordan, Jacobi, Gauss-Seidel |
-| **Tema 4** | Ajuste de Curvas | Regresión Lineal, Interpolación |
-| **Tema 5** | Cálculo Numérico | Regla del Trapecio, Simpson 1/3 |
-| **Tema 6** | Ecuaciones Diferenciales | Método de Euler, Runge-Kutta (RK4) |
+Consiste en determinar los valores de varias incógnitas que satisfacen simultáneamente un conjunto de ecuaciones.
+
+### Representación Matricial
+
+Un sistema lineal puede expresarse como:
+
+\[
+AX=B
+\]
+
+donde:
+
+- **A:** Matriz de coeficientes.
+- **X:** Vector de incógnitas.
+- **B:** Vector de términos independientes.
+
+### Métodos Directos
+
+Obtienen la solución tras una secuencia finita de operaciones algebraicas.
+
+#### Eliminación Gaussiana
+
+- Convierte la matriz en una forma triangular superior.
+- Resuelve mediante sustitución hacia atrás.
+
+#### Método de Gauss-Jordan
+
+- Lleva la matriz a una forma escalonada reducida.
+- Permite obtener directamente la solución.
+
+#### Factorización LU
+
+- Descompone la matriz en dos matrices triangulares.
+- Facilita la resolución de múltiples sistemas con la misma matriz de coeficientes.
+
+### Métodos Iterativos
+
+Parten de una aproximación inicial y refinan progresivamente la solución.
+
+#### Método de Jacobi
+
+- Actualiza todas las variables utilizando únicamente valores de la iteración anterior.
+- Fácil de implementar.
+
+#### Método de Gauss-Seidel
+
+- Utiliza los valores recién calculados durante la misma iteración.
+- Generalmente converge más rápido que Jacobi.
 
 ---
-🔬 **Tecnológico Nacional de México (TecNM)** — *Departamento de Ciencias Básicas / Ingeniería.*
+
+# 4. Ajuste de Funciones e Interpolación
+
+Permite construir funciones matemáticas que representen un conjunto de datos experimentales o discretos.
+
+### Interpolación
+
+La función obtenida pasa exactamente por todos los puntos conocidos.
+
+#### Polinomio de Lagrange
+
+- Construye un único polinomio que atraviesa todos los datos.
+- Adecuado para conjuntos pequeños de puntos.
+
+#### Splines
+
+- Utilizan polinomios por segmentos.
+- Proporcionan curvas suaves y estables.
+
+### Regresión por Mínimos Cuadrados
+
+Busca la función que mejor representa la tendencia general de los datos.
+
+#### Regresión Lineal
+
+Modelo básico:
+
+\[
+y=mx+b
+\]
+
+Características:
+
+- Minimiza la suma de los errores al cuadrado.
+- Muy utilizada en análisis estadístico y modelado experimental.
+
+### Diferencias entre Interpolación y Regresión
+
+| Interpolación | Regresión |
+|--------------|------------|
+| Pasa por todos los puntos | No necesariamente pasa por los puntos |
+| Se usa con datos precisos | Se usa con datos experimentales |
+| Busca valores intermedios | Busca tendencias generales |
+
+---
+
+# 5. Diferenciación e Integración Numérica
+
+Permite aproximar derivadas e integrales cuando la función analítica es desconocida o difícil de manipular.
+
+### Diferenciación Numérica
+
+Aproxima la derivada utilizando valores discretos.
+
+#### Diferencia Hacia Adelante
+
+\[
+f'(x)\approx \frac{f(x+h)-f(x)}{h}
+\]
+
+Características:
+
+- Fácil implementación.
+- Precisión limitada.
+- Depende del tamaño del paso \(h\).
+
+### Integración Numérica
+
+Calcula el área bajo una curva mediante aproximaciones geométricas.
+
+#### Regla del Trapecio
+
+Aproxima el área utilizando trapecios.
+
+\[
+\int_a^b f(x)\,dx \approx \frac{b-a}{2}[f(a)+f(b)]
+\]
+
+Ventajas:
+
+- Sencilla implementación.
+- Adecuada para funciones suaves.
+
+#### Regla de Simpson
+
+Utiliza parábolas para aproximar la función.
+
+Características:
+
+- Mayor precisión que la regla del trapecio.
+- Requiere subdivisiones específicas del intervalo.
+- Muy utilizada en aplicaciones de ingeniería.
+
+---
+
+# 6. Solución de Ecuaciones Diferenciales
+
+Las ecuaciones diferenciales modelan fenómenos donde una variable depende de la tasa de cambio de otra.
+
+### Problemas de Valor Inicial
+
+Se expresan generalmente como:
+
+\[
+\frac{dy}{dx}=f(x,y)
+\]
+
+con una condición inicial:
+
+\[
+y(x_0)=y_0
+\]
+
+### Método de Euler
+
+Es el método numérico más sencillo para resolver ecuaciones diferenciales.
+
+Fórmula:
+
+\[
+y_{n+1}=y_n+h\,f(x_n,y_n)
+\]
+
+Características:
+
+- Fácil implementación.
+- Baja precisión.
+- Base para métodos más avanzados.
+
+### Métodos de Runge-Kutta
+
+Mejoran significativamente la precisión mediante evaluaciones intermedias.
+
+#### Runge-Kutta de Cuarto Orden (RK4)
+
+Características:
+
+- Método más utilizado en ingeniería.
+- Excelente equilibrio entre precisión y costo computacional.
+- Reduce considerablemente el error respecto al método de Euler.
+
+---
+
+# Resumen General
+
+| Tema | Concepto Principal | Métodos Relevantes |
+|--------|------------------|--------------------|
+| Tema 1 | Análisis de Errores | Error Absoluto, Relativo, Redondeo y Truncamiento |
+| Tema 2 | Ecuaciones Algebraicas | Bisección, Falsa Posición, Punto Fijo, Newton-Raphson, Secante |
+| Tema 3 | Sistemas Lineales | Gauss, Gauss-Jordan, LU, Jacobi, Gauss-Seidel |
+| Tema 4 | Ajuste de Curvas | Lagrange, Splines, Regresión Lineal |
+| Tema 5 | Cálculo Numérico | Diferencias Finitas, Trapecio, Simpson |
+| Tema 6 | Ecuaciones Diferenciales | Euler, Runge-Kutta |
+
+---
+
+**Tecnológico Nacional de México (TecNM)**  
+*Departamento de Ciencias Básicas e Ingeniería*
