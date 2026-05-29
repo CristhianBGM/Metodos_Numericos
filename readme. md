@@ -1,1 +1,329 @@
+# Métodos Numéricos - Resumen de Temas
 
+Este repositorio contiene un resumen de los principales temas de la asignatura **Métodos Numéricos** del **Tecnológico Nacional de México (TecNM)**. La materia se enfoca en el desarrollo y aplicación de algoritmos para resolver problemas matemáticos mediante aproximaciones numéricas.
+
+---
+
+# 1. Introducción a los Métodos Numéricos
+
+## ¿Qué son los métodos numéricos?
+
+Los métodos numéricos son técnicas matemáticas utilizadas para obtener soluciones aproximadas a problemas que no pueden resolverse de forma exacta o cuya solución analítica resulta demasiado compleja.
+
+## Importancia
+
+- Resolver problemas de ingeniería y ciencias.
+- Implementar soluciones mediante computadoras.
+- Obtener resultados precisos en tiempos razonables.
+- Modelar fenómenos físicos y matemáticos.
+
+## Tipos de errores
+
+### Error absoluto
+
+Mide la diferencia entre el valor real y el valor aproximado.
+
+\[
+(f)=|Valor\ real - Valor\ aproximado|
+\]
+
+### Error relativo
+
+Indica qué tan significativo es el error respecto al valor real.
+
+\[
+(f)=\frac{Valor\ real}
+\]
+
+### Error de redondeo
+
+Se produce cuando una computadora almacena una cantidad limitada de cifras decimales.
+
+### Error de truncamiento
+
+Ocurre cuando se sustituye un proceso matemático infinito por una aproximación finita.
+
+## Aplicaciones
+
+- Simulación de sistemas físicos.
+- Ingeniería civil y mecánica.
+- Inteligencia artificial.
+- Procesamiento de datos.
+
+---
+
+# 2. Solución de Ecuaciones Algebraicas
+
+## Objetivo
+
+Encontrar las raíces de una ecuación, es decir, los valores de \(x\) que satisfacen:
+
+\[
+f(x)=0
+\]
+
+### Ejemplo
+
+\[
+x^2-9=0
+\]
+
+Raíces:
+
+\[
+x=3,\quad x=-3
+\]
+
+## Métodos de intervalo
+
+### Método de Bisección
+
+Consiste en dividir repetidamente un intervalo donde existe un cambio de signo hasta aproximar la raíz.
+
+Ventajas:
+
+- Fácil de implementar.
+- Siempre converge si se cumplen las condiciones.
+
+## Métodos de punto fijo
+
+Transforman la ecuación original en:
+
+\[
+x=g(x)
+\]
+
+y realizan iteraciones mediante:
+
+\[
+x_{n+1}=g(x_n)
+\]
+
+hasta alcanzar una solución estable.
+
+## Aplicaciones
+
+- Ingeniería estructural.
+- Electrónica.
+- Mecánica.
+- Optimización de procesos.
+
+---
+
+# 3. Solución de Sistemas de Ecuaciones
+
+## Concepto
+
+Un sistema de ecuaciones contiene varias ecuaciones con múltiples incógnitas.
+
+### Ejemplo
+
+\[
+2x+y=5
+\]
+
+\[
+x-y=1
+\]
+
+## Representación matricial
+
+Los sistemas lineales pueden expresarse como:
+
+\[
+AX=B
+\]
+
+Donde:
+
+- **A**: matriz de coeficientes.
+- **X**: vector de incógnitas.
+- **B**: vector de resultados.
+
+## Métodos de solución
+
+### Métodos directos
+
+- Eliminación de Gauss.
+- Gauss-Jordan.
+- Factorización LU.
+
+### Métodos iterativos
+
+- Jacobi.
+- Gauss-Seidel.
+
+## Aplicaciones
+
+- Circuitos eléctricos.
+- Análisis estructural.
+- Sistemas económicos.
+- Modelado matemático.
+
+---
+
+# 4. Ajuste de Funciones
+
+## Objetivo
+
+Construir una función matemática que represente adecuadamente un conjunto de datos experimentales.
+
+## Interpolación
+
+Permite estimar valores intermedios utilizando puntos conocidos.
+
+### Ejemplo
+
+| x | y |
+|---|---|
+| 1 | 2 |
+| 2 | 4 |
+| 3 | 6 |
+
+Para \(x=2.5\), se puede estimar \(y=5\).
+
+## Regresión por mínimos cuadrados
+
+Busca la función que mejor se ajusta a los datos minimizando el error cuadrático.
+
+### Modelo lineal
+
+\[
+y=a+bx
+\]
+
+## Aplicaciones
+
+- Estadística.
+- Predicción de ventas.
+- Análisis de tendencias.
+- Ciencia de datos.
+
+---
+
+# 5. Diferenciación e Integración Numérica
+
+## Diferenciación Numérica
+
+Permite aproximar derivadas cuando la función exacta no está disponible.
+
+### Diferencia hacia adelante
+
+\[
+f'(x)\approx\frac{f(x+h)-f(x)}{h}
+\]
+
+### Aplicaciones
+
+- Cálculo de velocidades.
+- Análisis de señales.
+- Ingeniería mecánica.
+
+---
+
+## Integración Numérica
+
+Permite calcular áreas bajo una curva mediante aproximaciones.
+
+### Regla del Trapecio
+
+\[
+\int_a^b f(x)\,dx
+\approx
+\frac{b-a}{2}[f(a)+f(b)]
+\]
+
+### Regla de Simpson
+
+Utiliza parábolas para obtener una aproximación más precisa.
+
+## Aplicaciones
+
+- Energía y trabajo.
+- Mecánica de fluidos.
+- Estadística.
+- Procesamiento digital.
+
+---
+
+# 6. Solución de Ecuaciones Diferenciales
+
+## Concepto
+
+Las ecuaciones diferenciales relacionan una función con sus derivadas.
+
+### Ejemplo
+
+\[
+\frac{dy}{dx}=x+y
+\]
+
+## Problemas de Valor Inicial (PVI)
+
+Se conoce el valor inicial de la función.
+
+### Ejemplo
+
+\[
+\frac{dy}{dx}=x+y
+\]
+
+\[
+y(0)=1
+\]
+
+## Método de Euler
+
+Es uno de los métodos numéricos más sencillos para resolver ecuaciones diferenciales ordinarias.
+
+\[
+y_{n+1}=y_n+h\,f(x_n,y_n)
+\]
+
+Donde:
+
+- \(h\) es el tamaño del paso.
+- \(f(x,y)\) es la función dada.
+
+## Métodos de Runge-Kutta
+
+Son métodos más precisos que Euler y ampliamente utilizados en ingeniería.
+
+## Problemas de Valor en la Frontera
+
+Las condiciones se conocen en dos puntos distintos del dominio.
+
+### Ejemplo
+
+\[
+y(0)=1
+\]
+
+\[
+y(2)=5
+\]
+
+## Aplicaciones
+
+- Transferencia de calor.
+- Dinámica de fluidos.
+- Circuitos eléctricos.
+- Crecimiento poblacional.
+- Sistemas de control.
+
+---
+
+# Resumen General
+
+| Tema | Concepto Principal |
+|--------|-------------------|
+| Introducción a los Métodos Numéricos | Aproximación de soluciones y análisis de errores |
+| Solución de Ecuaciones Algebraicas | Obtención de raíces de funciones |
+| Solución de Sistemas de Ecuaciones | Resolución de sistemas lineales y no lineales |
+| Ajuste de Funciones | Interpolación y regresión |
+| Diferenciación e Integración Numérica | Aproximación de derivadas e integrales |
+| Solución de Ecuaciones Diferenciales | Métodos numéricos para EDO y problemas de frontera |
+
+---
+
+**Tecnológico Nacional de México (TecNM) - Métodos Numéricos**
