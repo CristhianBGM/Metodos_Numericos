@@ -1,321 +1,38 @@
-# Métodos Numéricos
-> **Asignatura:** Métodos Numéricos
-> **Institución:** Tecnológico Nacional de México (TecNM)
-> **Objetivo:** Desarrollar y aplicar algoritmos numéricos para resolver problemas matemáticos complejos mediante aproximaciones computacionales.
+Resumen Simplificado de Métodos Numéricos
+1. ¿Qué son los Métodos Numéricos?
+Son técnicas que usan las computadoras para aproximarse a la respuesta de problemas matemáticos que son demasiado difíciles de resolver a mano. Como son aproximaciones, nunca son perfectas y siempre tienen un pequeño margen de error. Este error ocurre porque la computadora tiene que redondear los decimales o porque corta operaciones que normalmente serían infinitas.
 
----
+2. Encontrar el valor de una incógnita (Ecuaciones Algebraicas)
+El objetivo aquí es descubrir qué número resuelve un problema. Existen dos formas principales de buscar ese número:
 
-# Índice de Contenidos
+Métodos cerrados (como la Bisección): Acorralan la respuesta entre dos números y van cerrando el espacio hasta atraparla. Son seguros pero pueden ser lentos.
 
-1. Introducción a los Métodos Numéricos
-2. Solución de Ecuaciones Algebraicas
-3. Solución de Sistemas de Ecuaciones
-4. Ajuste de Funciones e Interpolación
-5. Diferenciación e Integración Numérica
-6. Solución de Ecuaciones Diferenciales
+Métodos abiertos (como Newton-Raphson): Empiezan con una simple corazonada o suposición y usan reglas matemáticas para saltar directamente hacia la respuesta correcta. Son más rápidos.
 
----
+3. Resolver problemas con múltiples incógnitas (Sistemas de Ecuaciones)
+Esto se usa cuando tienes varias cosas que no conoces y necesitas descubrirlas todas al mismo tiempo.
 
-# 1. Introducción a los Métodos Numéricos
+Métodos directos (como la Eliminación de Gauss): Siguen una receta de cocina paso a paso que transforma los datos hasta dejar las respuestas a la vista.
 
-Los métodos numéricos son técnicas matemáticas utilizadas para obtener soluciones aproximadas de problemas que no pueden resolverse de forma exacta o cuya solución analítica resulta demasiado compleja.
+Métodos iterativos (como Gauss-Seidel): Empiezan adivinando todas las respuestas y repiten el proceso una y otra vez, mejorando su suposición en cada vuelta hasta acertar.
 
-### Importancia en la Ingeniería
+4. Unir puntos y predecir tendencias (Ajuste e Interpolación)
+Sirve para tomar datos sueltos (como los resultados de un experimento) y crear una línea continua que los represente.
 
-* Permiten modelar fenómenos físicos y procesos reales.
-* Facilitan la resolución de problemas complejos mediante algoritmos computacionales.
-* Proporcionan resultados precisos con un costo computacional razonable.
-* Constituyen una herramienta fundamental en áreas como ingeniería, física, economía y ciencias computacionales.
+Interpolación (como Splines): Es como el juego de unir los puntos; la línea resultante tiene que tocar obligatoriamente cada uno de los datos registrados.
 
-### Análisis de Errores
+Regresión (como los Mínimos Cuadrados): No le importa tocar todos los puntos, solo busca dibujar una línea recta o curva que muestre la tendencia general o el comportamiento promedio de la información.
 
-Los resultados numéricos siempre presentan cierto grado de error debido a las aproximaciones realizadas.
+5. Calcular pendientes y áreas (Diferenciación e Integración)
+Son formas de analizar cómo se comportan las curvas.
 
-#### Error Absoluto
+Diferenciación: Mide qué tan rápido está cambiando algo en un momento exacto, comparando puntos muy cercanos.
 
-Mide la diferencia entre el valor real y el valor aproximado.
+Integración: Sirve para calcular el espacio total que hay debajo de una curva. Para lograrlo, el método del Trapecio rellena ese espacio con figuras de bordes rectos, mientras que el método de Simpson lo rellena con pequeñas curvas para ser mucho más exacto.
 
-```text
-Ea = |Valor_real - Valor_aproximado|
-```
+6. Predecir cambios en el tiempo (Ecuaciones Diferenciales)
+Se usan para entender fenómenos donde algo cambia dependiendo de su estado anterior (por ejemplo, cómo se enfría un café o cómo crece una población).
 
-#### Error Relativo
+Método de Euler: Da pasos pequeños y simples para adivinar el futuro. Es fácil pero puede equivocarse bastante si la predicción es a largo plazo.
 
-Representa la magnitud del error respecto al valor real.
-
-```text
-Er = |Valor_real - Valor_aproximado| / Valor_real
-```
-
-#### Error de Redondeo
-
-Se produce al representar números con una cantidad limitada de cifras decimales dentro de la computadora.
-
-#### Error de Truncamiento
-
-Ocurre cuando un proceso matemático infinito se reemplaza por una aproximación finita.
-
----
-
-# 2. Solución de Ecuaciones Algebraicas
-
-El objetivo es encontrar las raíces de una ecuación, es decir, los valores de x que satisfacen:
-
-```text
-f(x) = 0
-```
-
-### Métodos de Intervalo o Cerrados
-
-Estos métodos requieren un intervalo inicial donde exista un cambio de signo.
-
-#### Método de Bisección
-
-* Divide repetidamente el intervalo en dos partes iguales.
-* Selecciona el subintervalo donde permanece el cambio de signo.
-* Garantiza convergencia bajo las condiciones adecuadas.
-
-#### Método de Falsa Posición
-
-* Utiliza interpolación lineal entre los extremos del intervalo.
-* Generalmente converge más rápido que la bisección.
-* Conserva la ventaja de trabajar con un intervalo acotado.
-
-### Métodos Abiertos
-
-No requieren encerrar la raíz dentro de un intervalo.
-
-#### Método de Punto Fijo
-
-Transforma la ecuación original en:
-
-```text
-x = g(x)
-```
-
-Realizando iteraciones mediante:
-
-```text
-x(n+1) = g(xn)
-```
-
-#### Método de Newton-Raphson
-
-Utiliza la derivada de la función para aproximar la raíz.
-
-Características:
-
-* Convergencia rápida.
-* Alta precisión.
-* Requiere calcular la derivada.
-
-#### Método de la Secante
-
-* Similar a Newton-Raphson.
-* No necesita derivadas explícitas.
-* Utiliza dos aproximaciones iniciales.
-
----
-
-# 3. Solución de Sistemas de Ecuaciones
-
-Consiste en determinar los valores de varias incógnitas que satisfacen simultáneamente un conjunto de ecuaciones.
-
-### Representación Matricial
-
-Un sistema lineal puede expresarse como:
-
-```text
-A · X = B
-```
-
-Donde:
-
-* A = Matriz de coeficientes.
-* X = Vector de incógnitas.
-* B = Vector de términos independientes.
-
-### Métodos Directos
-
-#### Eliminación Gaussiana
-
-* Convierte la matriz en una forma triangular superior.
-* Resuelve mediante sustitución hacia atrás.
-
-#### Método de Gauss-Jordan
-
-* Lleva la matriz a una forma escalonada reducida.
-* Permite obtener directamente la solución.
-
-#### Factorización LU
-
-* Descompone la matriz en dos matrices triangulares.
-* Facilita la resolución de múltiples sistemas con la misma matriz de coeficientes.
-
-### Métodos Iterativos
-
-#### Método de Jacobi
-
-* Actualiza todas las variables usando valores de la iteración anterior.
-* Fácil implementación.
-
-#### Método de Gauss-Seidel
-
-* Utiliza los valores recién calculados durante la misma iteración.
-* Generalmente converge más rápido que Jacobi.
-
----
-
-# 4. Ajuste de Funciones e Interpolación
-
-Permite construir funciones matemáticas que representen un conjunto de datos experimentales o discretos.
-
-### Interpolación
-
-La función obtenida pasa exactamente por todos los puntos conocidos.
-
-#### Polinomio de Lagrange
-
-* Construye un único polinomio que atraviesa todos los datos.
-* Adecuado para conjuntos pequeños de puntos.
-
-#### Splines
-
-* Utilizan polinomios por segmentos.
-* Proporcionan curvas suaves y estables.
-
-### Regresión por Mínimos Cuadrados
-
-Busca la función que mejor representa la tendencia general de los datos.
-
-#### Regresión Lineal
-
-Modelo básico:
-
-```text
-y = mx + b
-```
-
-Características:
-
-* Minimiza la suma de los errores al cuadrado.
-* Muy utilizada en análisis estadístico y modelado experimental.
-
-### Diferencias entre Interpolación y Regresión
-
-| Interpolación              | Regresión                                   |
-| -------------------------- | ------------------------------------------- |
-| Pasa por todos los puntos  | No necesariamente pasa por todos los puntos |
-| Datos exactos              | Datos experimentales                        |
-| Estima valores intermedios | Determina tendencias                        |
-
----
-
-# 5. Diferenciación e Integración Numérica
-
-Permite aproximar derivadas e integrales cuando la función analítica es desconocida o difícil de manipular.
-
-### Diferenciación Numérica
-
-#### Diferencia Hacia Adelante
-
-```text
-f'(x) ≈ [f(x+h) - f(x)] / h
-```
-
-Características:
-
-* Fácil implementación.
-* Precisión moderada.
-* Depende del tamaño del paso h.
-
-### Integración Numérica
-
-#### Regla del Trapecio
-
-Aproxima el área bajo la curva mediante trapecios.
-
-```text
-∫ f(x) dx ≈ ((b-a)/2) × [f(a) + f(b)]
-```
-
-Ventajas:
-
-* Fácil implementación.
-* Bajo costo computacional.
-* Buena aproximación para funciones suaves.
-
-#### Regla de Simpson
-
-Utiliza parábolas para aproximar la función.
-
-Características:
-
-* Mayor precisión que la Regla del Trapecio.
-* Requiere intervalos específicos.
-* Muy utilizada en aplicaciones de ingeniería.
-
----
-
-# 6. Solución de Ecuaciones Diferenciales
-
-Las ecuaciones diferenciales modelan fenómenos donde una variable depende de la tasa de cambio de otra.
-
-### Problemas de Valor Inicial
-
-Forma general:
-
-```text
-dy/dx = f(x,y)
-```
-
-Con condición inicial:
-
-```text
-y(x0) = y0
-```
-
-### Método de Euler
-
-Es el método numérico más sencillo para resolver ecuaciones diferenciales.
-
-```text
-y(n+1) = yn + h · f(xn, yn)
-```
-
-Características:
-
-* Fácil implementación.
-* Bajo costo computacional.
-* Menor precisión que métodos avanzados.
-
-### Métodos de Runge-Kutta
-
-Mejoran significativamente la precisión mediante evaluaciones intermedias.
-
-#### Runge-Kutta de Cuarto Orden (RK4)
-
-Características:
-
-* Método más utilizado en ingeniería.
-* Alta precisión.
-* Excelente equilibrio entre exactitud y costo computacional.
-* Reduce considerablemente el error respecto al método de Euler.
-
----
-
-# Resumen General
-
-| Tema   | Concepto Principal           | Métodos Relevantes                                             |
-| ------ | ---------------------------- | -------------------------------------------------------------- |
-| Tema 1 | Análisis de Errores          | Error Absoluto, Relativo, Redondeo y Truncamiento              |
-| Tema 2 | Ecuaciones Algebraicas       | Bisección, Falsa Posición, Punto Fijo, Newton-Raphson, Secante |
-| Tema 3 | Sistemas Lineales            | Gauss, Gauss-Jordan, LU, Jacobi, Gauss-Seidel                  |
-| Tema 4 | Ajuste de Curvas             | Lagrange, Splines, Regresión Lineal                            |
-| Tema 5 | Diferenciación e Integración | Diferencias Finitas, Trapecio, Simpson                         |
-| Tema 6 | Ecuaciones Diferenciales     | Euler, Runge-Kutta (RK4)                                       |
-
----
-
-**Tecnológico Nacional de México (TecNM)**
-*Departamento de Ciencias Básicas e Ingeniería*
+Métodos de Runge-Kutta: Son mucho más listos. Toman varios puntos de referencia antes de dar el siguiente paso, lo que los hace extremadamente precisos y los favoritos de los ingenieros.
