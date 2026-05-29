@@ -1,7 +1,7 @@
-# Métodos Numéricos - Resumen de Temas
+# Métodos Numéricos
 
-> **Asignatura:** Métodos Numéricos  
-> **Institución:** Tecnológico Nacional de México (TecNM)  
+> **Asignatura:** Métodos Numéricos
+> **Institución:** Tecnológico Nacional de México (TecNM)
 > **Objetivo:** Desarrollar y aplicar algoritmos numéricos para resolver problemas matemáticos complejos mediante aproximaciones computacionales.
 
 ---
@@ -23,10 +23,10 @@ Los métodos numéricos son técnicas matemáticas utilizadas para obtener soluc
 
 ### Importancia en la Ingeniería
 
-- Permiten modelar fenómenos físicos y procesos reales.
-- Facilitan la resolución de problemas complejos mediante algoritmos computacionales.
-- Proporcionan resultados precisos con un costo computacional razonable.
-- Constituyen una herramienta fundamental en áreas como ingeniería, física, economía y ciencias computacionales.
+* Permiten modelar fenómenos físicos y procesos reales.
+* Facilitan la resolución de problemas complejos mediante algoritmos computacionales.
+* Proporcionan resultados precisos con un costo computacional razonable.
+* Constituyen una herramienta fundamental en áreas como ingeniería, física, economía y ciencias computacionales.
 
 ### Análisis de Errores
 
@@ -36,17 +36,17 @@ Los resultados numéricos siempre presentan cierto grado de error debido a las a
 
 Mide la diferencia entre el valor real y el valor aproximado.
 
-\[
-E_a = |Valor_{real} - Valor_{aproximado}|
-\]
+```text
+Ea = |Valor_real - Valor_aproximado|
+```
 
 #### Error Relativo
 
 Representa la magnitud del error respecto al valor real.
 
-\[
-E_r = \frac{|Valor_{real} - Valor_{aproximado}|}{Valor_{real}}
-\]
+```text
+Er = |Valor_real - Valor_aproximado| / Valor_real
+```
 
 #### Error de Redondeo
 
@@ -60,11 +60,11 @@ Ocurre cuando un proceso matemático infinito se reemplaza por una aproximación
 
 # 2. Solución de Ecuaciones Algebraicas
 
-El objetivo es encontrar las raíces de una ecuación, es decir, los valores de \(x\) que satisfacen:
+El objetivo es encontrar las raíces de una ecuación, es decir, los valores de x que satisfacen:
 
-\[
-f(x)=0
-\]
+```text
+f(x) = 0
+```
 
 ### Métodos de Intervalo o Cerrados
 
@@ -72,15 +72,15 @@ Estos métodos requieren un intervalo inicial donde exista un cambio de signo.
 
 #### Método de Bisección
 
-- Divide repetidamente el intervalo en dos partes iguales.
-- Selecciona el subintervalo donde permanece el cambio de signo.
-- Garantiza convergencia bajo las condiciones adecuadas.
+* Divide repetidamente el intervalo en dos partes iguales.
+* Selecciona el subintervalo donde permanece el cambio de signo.
+* Garantiza convergencia bajo las condiciones adecuadas.
 
 #### Método de Falsa Posición
 
-- Utiliza interpolación lineal entre los extremos del intervalo.
-- Generalmente converge más rápido que la bisección.
-- Conserva la ventaja de trabajar con un intervalo acotado.
+* Utiliza interpolación lineal entre los extremos del intervalo.
+* Generalmente converge más rápido que la bisección.
+* Conserva la ventaja de trabajar con un intervalo acotado.
 
 ### Métodos Abiertos
 
@@ -90,15 +90,15 @@ No requieren encerrar la raíz dentro de un intervalo.
 
 Transforma la ecuación original en:
 
-\[
-x=g(x)
-\]
+```text
+x = g(x)
+```
 
-y realiza iteraciones mediante:
+Realizando iteraciones mediante:
 
-\[
-x_{n+1}=g(x_n)
-\]
+```text
+x(n+1) = g(xn)
+```
 
 #### Método de Newton-Raphson
 
@@ -106,15 +106,15 @@ Utiliza la derivada de la función para aproximar la raíz.
 
 Características:
 
-- Convergencia rápida.
-- Alta precisión.
-- Requiere calcular la derivada.
+* Convergencia rápida.
+* Alta precisión.
+* Requiere calcular la derivada.
 
 #### Método de la Secante
 
-- Similar a Newton-Raphson.
-- No necesita derivadas explícitas.
-- Utiliza dos aproximaciones iniciales.
+* Similar a Newton-Raphson.
+* No necesita derivadas explícitas.
+* Utiliza dos aproximaciones iniciales.
 
 ---
 
@@ -126,48 +126,44 @@ Consiste en determinar los valores de varias incógnitas que satisfacen simultá
 
 Un sistema lineal puede expresarse como:
 
-\[
-AX=B
-\]
+```text
+A · X = B
+```
 
-donde:
+Donde:
 
-- **A:** Matriz de coeficientes.
-- **X:** Vector de incógnitas.
-- **B:** Vector de términos independientes.
+* A = Matriz de coeficientes.
+* X = Vector de incógnitas.
+* B = Vector de términos independientes.
 
 ### Métodos Directos
 
-Obtienen la solución tras una secuencia finita de operaciones algebraicas.
-
 #### Eliminación Gaussiana
 
-- Convierte la matriz en una forma triangular superior.
-- Resuelve mediante sustitución hacia atrás.
+* Convierte la matriz en una forma triangular superior.
+* Resuelve mediante sustitución hacia atrás.
 
 #### Método de Gauss-Jordan
 
-- Lleva la matriz a una forma escalonada reducida.
-- Permite obtener directamente la solución.
+* Lleva la matriz a una forma escalonada reducida.
+* Permite obtener directamente la solución.
 
 #### Factorización LU
 
-- Descompone la matriz en dos matrices triangulares.
-- Facilita la resolución de múltiples sistemas con la misma matriz de coeficientes.
+* Descompone la matriz en dos matrices triangulares.
+* Facilita la resolución de múltiples sistemas con la misma matriz de coeficientes.
 
 ### Métodos Iterativos
 
-Parten de una aproximación inicial y refinan progresivamente la solución.
-
 #### Método de Jacobi
 
-- Actualiza todas las variables utilizando únicamente valores de la iteración anterior.
-- Fácil de implementar.
+* Actualiza todas las variables usando valores de la iteración anterior.
+* Fácil implementación.
 
 #### Método de Gauss-Seidel
 
-- Utiliza los valores recién calculados durante la misma iteración.
-- Generalmente converge más rápido que Jacobi.
+* Utiliza los valores recién calculados durante la misma iteración.
+* Generalmente converge más rápido que Jacobi.
 
 ---
 
@@ -181,13 +177,13 @@ La función obtenida pasa exactamente por todos los puntos conocidos.
 
 #### Polinomio de Lagrange
 
-- Construye un único polinomio que atraviesa todos los datos.
-- Adecuado para conjuntos pequeños de puntos.
+* Construye un único polinomio que atraviesa todos los datos.
+* Adecuado para conjuntos pequeños de puntos.
 
 #### Splines
 
-- Utilizan polinomios por segmentos.
-- Proporcionan curvas suaves y estables.
+* Utilizan polinomios por segmentos.
+* Proporcionan curvas suaves y estables.
 
 ### Regresión por Mínimos Cuadrados
 
@@ -197,22 +193,22 @@ Busca la función que mejor representa la tendencia general de los datos.
 
 Modelo básico:
 
-\[
-y=mx+b
-\]
+```text
+y = mx + b
+```
 
 Características:
 
-- Minimiza la suma de los errores al cuadrado.
-- Muy utilizada en análisis estadístico y modelado experimental.
+* Minimiza la suma de los errores al cuadrado.
+* Muy utilizada en análisis estadístico y modelado experimental.
 
 ### Diferencias entre Interpolación y Regresión
 
-| Interpolación | Regresión |
-|--------------|------------|
-| Pasa por todos los puntos | No necesariamente pasa por los puntos |
-| Se usa con datos precisos | Se usa con datos experimentales |
-| Busca valores intermedios | Busca tendencias generales |
+| Interpolación              | Regresión                                   |
+| -------------------------- | ------------------------------------------- |
+| Pasa por todos los puntos  | No necesariamente pasa por todos los puntos |
+| Datos exactos              | Datos experimentales                        |
+| Estima valores intermedios | Determina tendencias                        |
 
 ---
 
@@ -222,36 +218,33 @@ Permite aproximar derivadas e integrales cuando la función analítica es descon
 
 ### Diferenciación Numérica
 
-Aproxima la derivada utilizando valores discretos.
-
 #### Diferencia Hacia Adelante
 
-\[
-f'(x)\approx \frac{f(x+h)-f(x)}{h}
-\]
+```text
+f'(x) ≈ [f(x+h) - f(x)] / h
+```
 
 Características:
 
-- Fácil implementación.
-- Precisión limitada.
-- Depende del tamaño del paso \(h\).
+* Fácil implementación.
+* Precisión moderada.
+* Depende del tamaño del paso h.
 
 ### Integración Numérica
 
-Calcula el área bajo una curva mediante aproximaciones geométricas.
-
 #### Regla del Trapecio
 
-Aproxima el área utilizando trapecios.
+Aproxima el área bajo la curva mediante trapecios.
 
-\[
-\int_a^b f(x)\,dx \approx \frac{b-a}{2}[f(a)+f(b)]
-\]
+```text
+∫ f(x) dx ≈ ((b-a)/2) × [f(a) + f(b)]
+```
 
 Ventajas:
 
-- Sencilla implementación.
-- Adecuada para funciones suaves.
+* Fácil implementación.
+* Bajo costo computacional.
+* Buena aproximación para funciones suaves.
 
 #### Regla de Simpson
 
@@ -259,9 +252,9 @@ Utiliza parábolas para aproximar la función.
 
 Características:
 
-- Mayor precisión que la regla del trapecio.
-- Requiere subdivisiones específicas del intervalo.
-- Muy utilizada en aplicaciones de ingeniería.
+* Mayor precisión que la Regla del Trapecio.
+* Requiere intervalos específicos.
+* Muy utilizada en aplicaciones de ingeniería.
 
 ---
 
@@ -271,33 +264,31 @@ Las ecuaciones diferenciales modelan fenómenos donde una variable depende de la
 
 ### Problemas de Valor Inicial
 
-Se expresan generalmente como:
+Forma general:
 
-\[
-\frac{dy}{dx}=f(x,y)
-\]
+```text
+dy/dx = f(x,y)
+```
 
-con una condición inicial:
+Con condición inicial:
 
-\[
-y(x_0)=y_0
-\]
+```text
+y(x0) = y0
+```
 
 ### Método de Euler
 
 Es el método numérico más sencillo para resolver ecuaciones diferenciales.
 
-Fórmula:
-
-\[
-y_{n+1}=y_n+h\,f(x_n,y_n)
-\]
+```text
+y(n+1) = yn + h · f(xn, yn)
+```
 
 Características:
 
-- Fácil implementación.
-- Baja precisión.
-- Base para métodos más avanzados.
+* Fácil implementación.
+* Bajo costo computacional.
+* Menor precisión que métodos avanzados.
 
 ### Métodos de Runge-Kutta
 
@@ -307,24 +298,25 @@ Mejoran significativamente la precisión mediante evaluaciones intermedias.
 
 Características:
 
-- Método más utilizado en ingeniería.
-- Excelente equilibrio entre precisión y costo computacional.
-- Reduce considerablemente el error respecto al método de Euler.
+* Método más utilizado en ingeniería.
+* Alta precisión.
+* Excelente equilibrio entre exactitud y costo computacional.
+* Reduce considerablemente el error respecto al método de Euler.
 
 ---
 
 # Resumen General
 
-| Tema | Concepto Principal | Métodos Relevantes |
-|--------|------------------|--------------------|
-| Tema 1 | Análisis de Errores | Error Absoluto, Relativo, Redondeo y Truncamiento |
-| Tema 2 | Ecuaciones Algebraicas | Bisección, Falsa Posición, Punto Fijo, Newton-Raphson, Secante |
-| Tema 3 | Sistemas Lineales | Gauss, Gauss-Jordan, LU, Jacobi, Gauss-Seidel |
-| Tema 4 | Ajuste de Curvas | Lagrange, Splines, Regresión Lineal |
-| Tema 5 | Cálculo Numérico | Diferencias Finitas, Trapecio, Simpson |
-| Tema 6 | Ecuaciones Diferenciales | Euler, Runge-Kutta |
+| Tema   | Concepto Principal           | Métodos Relevantes                                             |
+| ------ | ---------------------------- | -------------------------------------------------------------- |
+| Tema 1 | Análisis de Errores          | Error Absoluto, Relativo, Redondeo y Truncamiento              |
+| Tema 2 | Ecuaciones Algebraicas       | Bisección, Falsa Posición, Punto Fijo, Newton-Raphson, Secante |
+| Tema 3 | Sistemas Lineales            | Gauss, Gauss-Jordan, LU, Jacobi, Gauss-Seidel                  |
+| Tema 4 | Ajuste de Curvas             | Lagrange, Splines, Regresión Lineal                            |
+| Tema 5 | Diferenciación e Integración | Diferencias Finitas, Trapecio, Simpson                         |
+| Tema 6 | Ecuaciones Diferenciales     | Euler, Runge-Kutta (RK4)                                       |
 
 ---
 
-**Tecnológico Nacional de México (TecNM)**  
+**Tecnológico Nacional de México (TecNM)**
 *Departamento de Ciencias Básicas e Ingeniería*
