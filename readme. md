@@ -1,38 +1,75 @@
-Resumen Simplificado de Métodos Numéricos
-1. ¿Qué son los Métodos Numéricos?
-Son técnicas que usan las computadoras para aproximarse a la respuesta de problemas matemáticos que son demasiado difíciles de resolver a mano. Como son aproximaciones, nunca son perfectas y siempre tienen un pequeño margen de error. Este error ocurre porque la computadora tiene que redondear los decimales o porque corta operaciones que normalmente serían infinitas.
+# Métodos Numéricos: Guía Simplificada
 
-2. Encontrar el valor de una incógnita (Ecuaciones Algebraicas)
-El objetivo aquí es descubrir qué número resuelve un problema. Existen dos formas principales de buscar ese número:
+Este repositorio contiene un resumen conceptual y accesible sobre los fundamentos de los Métodos Numéricos, diseñado para entender la lógica detrás de los algoritmos sin la complejidad de las fórmulas matemáticas avanzadas.
 
-Métodos cerrados (como la Bisección): Acorralan la respuesta entre dos números y van cerrando el espacio hasta atraparla. Son seguros pero pueden ser lentos.
+---
 
-Métodos abiertos (como Newton-Raphson): Empiezan con una simple corazonada o suposición y usan reglas matemáticas para saltar directamente hacia la respuesta correcta. Son más rápidos.
+## 📌 ¿Qué son los Métodos Numéricos?
 
-3. Resolver problemas con múltiples incógnitas (Sistemas de Ecuaciones)
-Esto se usa cuando tienes varias cosas que no conoces y necesitas descubrirlas todas al mismo tiempo.
+Son técnicas que usan las computadoras para aproximarse a la respuesta de problemas matemáticos que son demasiado difíciles de resolver a mano. 
 
-Métodos directos (como la Eliminación de Gauss): Siguen una receta de cocina paso a paso que transforma los datos hasta dejar las respuestas a la vista.
+Como son aproximaciones, nunca son perfectas y siempre tienen un pequeño margen de error. Este error ocurre principalmente por dos razones:
+* Porque la computadora tiene que redondear los decimales.
+* Porque corta operaciones que normalmente serían infinitas.
 
-Métodos iterativos (como Gauss-Seidel): Empiezan adivinando todas las respuestas y repiten el proceso una y otra vez, mejorando su suposición en cada vuelta hasta acertar.
+---
 
-4. Unir puntos y predecir tendencias (Ajuste e Interpolación)
-Sirve para tomar datos sueltos (como los resultados de un experimento) y crear una línea continua que los represente.
+## 🔍 1. Encontrar el valor de una incógnita (Ecuaciones Algebraicas)
 
-Interpolación (como Splines): Es como el juego de unir los puntos; la línea resultante tiene que tocar obligatoriamente cada uno de los datos registrados.
+El objetivo aquí es descubrir qué número resuelve un problema específico. Existen dos formas principales de buscar ese número:
 
-Regresión (como los Mínimos Cuadrados): No le importa tocar todos los puntos, solo busca dibujar una línea recta o curva que muestre la tendencia general o el comportamiento promedio de la información.
+### 🔹 Métodos cerrados (como la Bisección)
+Acorralan la respuesta entre dos números y van cerrando el espacio a la mitad en cada paso hasta atraparla. Son métodos muy seguros porque siempre encuentran la respuesta, pero pueden llegar a ser lentos.
 
-5. Calcular pendientes y áreas (Diferenciación e Integración)
-Son formas de analizar cómo se comportan las curvas.
+### 🔹 Métodos abiertos (como Newton-Raphson)
+Empiezan con una simple corazonada o suposición inicial y usan reglas matemáticas para saltar directamente hacia la respuesta correcta. Son muchísimo más rápidos, pero si la suposición inicial es mala, pueden perderse y no encontrar nada.
 
-Diferenciación: Mide qué tan rápido está cambiando algo en un momento exacto, comparando puntos muy cercanos.
+---
 
-Integración: Sirve para calcular el espacio total que hay debajo de una curva. Para lograrlo, el método del Trapecio rellena ese espacio con figuras de bordes rectos, mientras que el método de Simpson lo rellena con pequeñas curvas para ser mucho más exacto.
+## 🧮 2. Resolver problemas con múltiples incógnitas (Sistemas de Ecuaciones)
 
-6. Predecir cambios en el tiempo (Ecuaciones Diferenciales)
-Se usan para entender fenómenos donde algo cambia dependiendo de su estado anterior (por ejemplo, cómo se enfría un café o cómo crece una población).
+Esto se utiliza cuando tienes varias cosas que no conoces y necesitas descubrirlas todas al mismo tiempo de forma coordinada.
 
-Método de Euler: Da pasos pequeños y simples para adivinar el futuro. Es fácil pero puede equivocarse bastante si la predicción es a largo plazo.
+### 🔹 Métodos directos (como la Eliminación de Gauss)
+Siguen una receta de cocina paso a paso que transforma y simplifica todos los datos juntos hasta que las respuestas quedan completamente a la vista.
 
-Métodos de Runge-Kutta: Son mucho más listos. Toman varios puntos de referencia antes de dar el siguiente paso, lo que los hace extremadamente precisos y los favoritos de los ingenieros.
+### 🔹 Métodos iterativos (como Gauss-Seidel)
+Empiezan adivinando todas las respuestas a la vez y repiten el mismo proceso de cálculo una y otra vez. En cada vuelta van mejorando su suposición anterior hasta que aciertan con el valor exacto.
+
+---
+
+## 📈 3. Unir puntos y predecir tendencias (Ajuste e Interpolación)
+
+Sirve para tomar una serie de datos sueltos (como los resultados desordenados de un experimento) y crear una línea continua que los represente y les dé sentido.
+
+### 🔹 Interpolación (como Splines)
+Es exactamente como el juego infantil de unir los puntos numerados. La línea resultante tiene la obligación estricta de tocar cada uno de los datos registrados.
+
+### 🔹 Regresión (como los Mínimos Cuadrados)
+No le importa tocar todos los puntos. Su único objetivo es dibujar una línea recta o curva que muestre la tendencia general o el comportamiento promedio de toda la información.
+
+---
+
+## 📉 4. Calcular pendientes y áreas (Diferenciación e Integración)
+
+Son herramientas visuales y matemáticas para analizar la forma y el comportamiento de las curvas.
+
+### 🔹 Diferenciación
+Mide qué tan rápido está cambiando o subiendo algo en un momento exacto del tiempo, comparando la posición de dos puntos que están extremadamente cercanos.
+
+### 🔹 Integración
+Sirve para calcular el espacio total que hay atrapado debajo de una curva. 
+* El **método del Trapecio** rellena ese espacio con figuras de bordes rectos (fácil pero aproximado).
+* El **método de Simpson** lo rellena usando pequeñas curvas, lo que lo hace mucho más exacto.
+
+---
+
+## ⏳ 5. Predecir cambios en el tiempo (Ecuaciones Diferenciales)
+
+Se usan para entender fenómenos del mundo real donde algo cambia constantemente dependiendo de su estado anterior (por ejemplo, cómo se va enfriando una taza de café o cómo crece la población de un país).
+
+### 🔹 Método de Euler
+Da pasos pequeños, rectos y simples para adivinar cómo será el futuro. Es muy fácil de programar, pero puede equivocarse bastante si se intenta hacer una predicción a largo plazo.
+
+### 🔹 Métodos de Runge-Kutta
+Son mucho más inteligentes. Antes de dar el siguiente paso en la predicción, se detienen a analizar varios puntos de referencia intermedios. Esto los hace extremadamente precisos y los favoritos de los ingenieros para simulaciones reales.
