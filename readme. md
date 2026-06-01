@@ -1,40 +1,37 @@
-# Métodos Numéricos
+# Tema 4 - Interpolación
 
-Repositorio académico de la materia de Métodos Numéricos.
+## Descripción
+
+La interpolación numérica permite estimar valores intermedios dentro de un conjunto de datos conocidos mediante funciones matemáticas aproximadas.
 
 ## Objetivo
 
-Documentar los temas vistos durante el curso mediante conceptos, fórmulas, pseudocódigos, ejercicios, resultados y códigos implementados.
+Aplicar métodos de interpolación para aproximar valores desconocidos utilizando tablas de datos y polinomios.
 
-## Temas del repositorio
+## Contenido del tema
 
-| Tema                                                            | Descripción                                        |
-| --------------------------------------------------------------- | -------------------------------------------------- |
-| [01 - Errores y aproximaciones](./01-errores-y-aproximaciones/) | Cálculo de errores absoluto, relativo y porcentual |
-| [02 - Raíces de ecuaciones](./02-raices-de-ecuaciones/)         | Métodos para encontrar raíces de funciones         |
-| [03 - Sistemas de ecuaciones](./03-sistemas-de-ecuaciones/)     | Resolución de sistemas lineales                    |
-| [04 - Interpolación](./04-interpolacion/)                       | Estimación de valores intermedios                  |
-| [05 - Integración numérica](./05-integracion-numerica/)         | Aproximación de integrales definidas               |
-| [06 - Ecuaciones diferenciales](./06-ecuaciones-diferenciales/) | Métodos de Euler, Heun, Runge-Kutta y Taylor       |
+| Archivo         | Descripción                         |
+| --------------- | ----------------------------------- |
+| conceptos.md    | Definiciones y fórmulas principales |
+| pseudocodigo.md | Algoritmos de los métodos numéricos |
+| ejercicios.md   | Problemas desarrollados             |
+| resultados.md   | Resultados obtenidos                |
+| codigos/        | Implementaciones en Python          |
 
-## Estructura de cada tema
+## Métodos implementados
 
-Cada carpeta contiene:
+* Interpolación Lineal
+* Interpolación Cuadrática
+* Interpolación de Lagrange
 
-* README.md
-* conceptos.md
-* pseudocodigo.md
-* ejercicios.md
-* resultados.md
-* codigos/
+## Códigos disponibles
 
-## Herramientas utilizadas
+| Archivo                     | Método                    |
+| --------------------------- | ------------------------- |
+| interpolacion_lineal.py     | Interpolación Lineal      |
+| interpolacion_cuadratica.py | Interpolación Cuadrática  |
+| lagrange.py                 | Interpolación de Lagrange |
 
-* Python
-* Git
-* GitHub
-* Visual Studio Code
+## Navegación
 
-## Autor
-
-Repositorio elaborado como parte de la materia de Métodos Numéricos.
+[Volver al README principal](../README.md)
